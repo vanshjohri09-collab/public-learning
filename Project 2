@@ -1,0 +1,19 @@
+import random
+
+# Random number generate karo
+number = random.randint(1, 100)
+guesses = 0
+
+print("Guess the number between 1 and 100 🎯")
+
+while True:
+    guess = int(input("Your guess: "))
+    guesses += 1
+
+    if guess == number:
+        print(f"🎉 Correct! You guessed it in {guesses} attempts.")
+        break
+    elif guess > number:
+        print("Too high! Try a smaller number.")
+    else:
+        print("Too low! Try a bigger number.")
