@@ -1,0 +1,36 @@
+menu = {
+    "Coffee": 50,
+    "Tea": 30,
+    "Sandwich": 70,
+    "Cake": 100
+}
+
+print("---- Cafe Menu ----")
+for item, price in menu.items():
+    print(f"{item}: Rs {price}")
+
+total = 0
+
+while True:
+    order = input("\nEnter the item you want to order: ").strip().title()
+
+    if order in menu:
+        qty_input = input(f"How many {order}(s) do you want? ").strip()
+        
+        if qty_input.isdigit():
+            qty = int(qty_input)
+            cost = menu[order] * qty
+            total += cost
+            print(f"{qty} {order}(s) added to your order. Cost: Rs {cost}")
+        else:
+            print("Invalid quantity. Please enter a number.")
+            continue
+    else:
+        print("Order something which we can serve.")
+
+    more = input("Do you want to order anything else (yes/no)? ").strip().lower()
+    if more != "yes":
+        break
+
+print(f"\nYour total bill amount is: Rs {total}")
+print("Thanks for visiting the Digital Johri Cafe ☕🍰")
