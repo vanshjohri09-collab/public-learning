@@ -1,1 +1,37 @@
-hard coded quiz generater 
+qbank = [
+    {
+        "que": "What is the best language?",
+        "options": ["A. Python", "B. C", "C. HTML", "D. CSS"],
+        "ans": "A"
+    },
+    {
+        "que": "Which language is used for web styling?",
+        "options": ["A. Python", "B. C", "C. HTML", "D. CSS"],
+        "ans": "D"
+    },
+    {
+        "que": "Who developed Python?",
+        "options": ["A. James Gosling", "B. Guido van Rossum", "C. Dennis Ritchie", "D. Bjarne Stroustrup"],
+        "ans": "B"
+    }
+]
+
+def quiz():
+    score = 0   # score ko function ke andar initialize karo
+    for i, q in enumerate(qbank):
+        print(f"\nQ{i+1}. {q['que']}")
+        for option in q['options']:
+            print(option)
+
+        userans = input("Enter the correct option (A/B/C/D): ").strip().upper()
+
+        if userans == q['ans']:
+            print("✅ Correct Answer!")
+            score += 1
+        else:
+            print(f"❌ Wrong Answer! Correct is {q['ans']}")
+
+    print(f"\n🎯 Your total score is {score} out of {len(qbank)}")
+
+# Run the qullz
+quiz()
